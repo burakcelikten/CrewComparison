@@ -1,7 +1,9 @@
 class Crew:
 
-    def __init__(self, numberofmember, cost, numberofequipments, time):
+    def __init__(self, crew_name, numberofmember, cost, numberofequipments, time):
 
+        self.crew_name = crew_name
+        
         self.numberofmember = numberofmember
 
         self.cost = cost
@@ -86,11 +88,11 @@ class Crew:
     
 # Creating a variable with crew class
 
-crew1 = Crew(4, 100, 5, 36)
+crew1 = Crew("Crew1",4, 100, 5, 36)
 
-crew2 = Crew(5, 88, 6, 28)
+crew2 = Crew("Crew2",5, 88, 6, 28)
 
-crew3 = Crew(6, 189, 5, 26)
+crew3 = Crew("Crew3",6, 189, 5, 26)
 
 Crews = [crew1, crew2, crew3]
 
@@ -106,8 +108,18 @@ cost_comparison_values = comparison_toolbox.cost_comparison()
 
 timeandcost_comparison_values = comparison_toolbox.timeandcost_comparison()
 
+# Finding the most efficent crew
+
+most_efficient_crew_index = timeandcost_comparison_values.index(max(timeandcost_comparison_values))
+
+most_efficient_crew = Crews[most_efficient_crew_index]
+
+#Printing data
+
 print(hwr_comparison_values)
 
 print(cost_comparison_values)
 
 print(timeandcost_comparison_values)
+
+print(f"The most efficient crew is: {most_efficient_crew.crew_name} with efficiency: {max(timeandcost_comparison_values)}")
